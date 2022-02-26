@@ -1,10 +1,27 @@
+// options example
+//pipeline{
+//    agent any
+//    options { disableConcurrentBuilds() }
+//    stages{
+//        stage('one') {
+//            steps{
+//                sh 'sleep 10'
+//            }
+//        }
+//    }
+//}
+
+// environement variable
 pipeline{
     agent any
-    options { disableConcurrentBuilds() }
+    environment {
+        url = "google.com"
+    }
     stages{
         stage('one') {
             steps{
-                sh 'sleep 10'
+                sh 'echo ${url}'
+                echo url
             }
         }
     }

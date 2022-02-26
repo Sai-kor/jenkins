@@ -16,7 +16,7 @@ pipeline{
     agent any
     environment {
         url = "google.com"
-        SSH = credintials(CENTOS)
+        SSH = credentials(CENTOS)
     }
     stages{
         stage('one') {

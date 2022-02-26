@@ -23,6 +23,7 @@ pipeline{
             steps{
                 sh 'echo ${url}'
                 echo url
+                sh 'env'
                 echo SSH
             }
         }

@@ -17,7 +17,7 @@ pipeline{
     environment {
         url = "google.com"
         SSH = credentials("CENTOS")
-        ssh1= credentials('newrelic-api-key')
+        ssh1= credentials('pswd')
     }
     stages{
         stage('one') {

@@ -11,17 +11,19 @@
 //    }
 //}
 
-// environement variable
+// environment example
 pipeline{
     agent any
     environment {
         url = "google.com"
+        SSH = credintials(CENTOS)
     }
     stages{
         stage('one') {
             steps{
                 sh 'echo ${url}'
                 echo url
+                echo SSH
             }
         }
     }

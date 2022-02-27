@@ -110,7 +110,7 @@ pipeline{
     stages{
         stage('DEV'){
             when {
-                environment name: 'DEV', value: 'DEV'
+                environment name: 'ENV', value: 'DEV'
             }
             steps{
                 echo 'DEV'
@@ -118,7 +118,7 @@ pipeline{
         }
         stage('PROD'){
             when {
-               environment name: 'PROD', value: 'PROD'
+               environment name: 'ENV', value: 'PROD'
             }
             steps{
                 echo 'PROD'

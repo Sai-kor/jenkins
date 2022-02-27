@@ -81,22 +81,40 @@
 //    }
 //}
 
-//input example,mostly used for approvals
-pipeline {
+////input example,mostly used for approvals
+//pipeline {
+//    agent any
+//    stages {
+//        stage('Example') {
+//            input {
+//                message "Should we continue?"
+//                ok "Yes, we should."
+//                submitter "sai,bob"
+//                parameters {
+//                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+//                }
+//            }
+//            steps {
+//                echo "Hello, ${PERSON}, nice to meet you."
+//            }
+//        }
+//    }
+//}
+//when condition exmaple
+
+pipeline{
     agent any
-    stages {
-        stage('Example') {
-            input {
-                message "Should we continue?"
-                ok "Yes, we should."
-                submitter "sai,bob"
-                parameters {
-                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                }
-            }
-            steps {
-                echo "Hello, ${PERSON}, nice to meet you."
+    stages{
+        stage('DEV'){
+            steps{
+                echo 'DEV'
             }
         }
+        stage('PROD'){
+            steps{
+                echo 'PROD'
+            }
+        }
+
     }
 }

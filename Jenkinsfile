@@ -129,27 +129,27 @@
 //}
 
 // parallel stages example
-pipeline{
-    agent any
-    stages{
-        stage('One-sequential'){
-            steps{
-                sh 'sleep 45'
-            }
-        }
-        stage('two-parallel'){
-           parallel{
-               stage('tw01'){
-                   steps{
-                       sh 'sleep 60'
-                   }
-               }
-               stage('tw02'){
-                   steps{
-                       sh 'sleep 90'
-                   }
-               }
-           }
-        }
-    }
-}
+//pipeline{
+//    agent any
+//    stages{
+//        stage('One-sequential'){
+//            steps{
+//                sh 'sleep 45'
+//            }
+//        }
+//        stage('two-parallel'){
+//           parallel{
+//               stage('tw01'){
+//                   steps{
+//                       sh 'sleep 60'
+//                   }
+//               }
+//               stage('tw02'){
+//                   steps{
+//                       sh 'sleep 90'
+//                   }
+//               }
+//           }
+//        }
+//    }
+//}

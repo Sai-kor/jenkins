@@ -102,28 +102,54 @@
 //}
 //when condition exmaple
 
+//pipeline{
+//    agent any
+//    parameters{
+//        choice(name: 'ENV', choices: ['DEV', 'PROD' ],description:'choose ENV')
+//    }
+//    stages{
+//        stage('DEV'){
+//            when {
+//                environment name: 'ENV', value: 'DEV'
+//            }
+//            steps{
+//                echo 'DEV'
+//            }
+//        }
+//        stage('PROD'){
+//            when {
+//               environment name: 'ENV', value: 'PROD'
+//            }
+//            steps{
+//                echo 'PROD'
+//            }
+//        }
+//
+//    }
+//}
+
+// parallel stages example
 pipeline{
     agent any
-    parameters{
-        choice(name: 'ENV', choices: ['DEV', 'PROD' ],description:'choose ENV')
-    }
     stages{
-        stage('DEV'){
-            when {
-                environment name: 'ENV', value: 'DEV'
-            }
+        stage('One-sequential'){
             steps{
-                echo 'DEV'
+                sh 'sleep 45'
             }
         }
-        stage('PROD'){
-            when {
-               environment name: 'ENV', value: 'PROD'
-            }
-            steps{
-                echo 'PROD'
-            }
+        stage('two-parallel'){
+           parallel{
+               stage('tw01'){
+                   steps{
+                       sh 'sleep 60'
+                   }
+               }
+               stage('tw02'){
+                   steps{
+                       sh 'sleep 90'
+                   }
+               }
+           }
         }
-
     }
 }

@@ -67,17 +67,36 @@
 //}
 
 //tools
-pipeline{
+//pipeline{
+//    agent any
+//    tools{
+//        maven 'maven-3.8.4'
+//    }
+//    stages{
+//        stage('Maven'){
+//            steps{
+//                sh 'mvn --version'
+//            }
+//        }
+//    }
+//}
+
+//input example,mostly used for approvals
+pipeline {
     agent any
-    tools{
-        maven 'maven-3.8.4'
-    }
-    stages{
-        stage('Maven'){
-            steps{
-                sh 'mvn --version'
+    stages {
+        stage('Example') {
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
+            }
+            steps {
+                echo "Hello, ${PERSON}, nice to meet you."
             }
         }
     }
 }
-

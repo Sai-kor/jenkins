@@ -44,7 +44,7 @@ folder('CI pipelines') {
   displayName('CI pipelines')
   description('CI pipelines')
 }
-pipelineJob('CI pipeline/cart') {
+pipelineJob('CI pipelines/cart') {
   configure { flowdefinition ->
     flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
       'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {

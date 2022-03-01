@@ -1,3 +1,3 @@
-def sonarQube(){
-    println "Sonarqube testing"
+def sonarQube(component,app_type){
+    println "Sonarqube testing - ${component} - ${app_type}"
 }

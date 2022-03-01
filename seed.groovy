@@ -45,10 +45,10 @@ folder('CI pipelines') {
   description('CI pipelines')
 }
 
-def COMPONENTS = ["cart","catalogue"]
+def COMPONENTS = ["cart","catalogue","payment","shipping","user","dispatch"]
 def SIZE = COMPONENTS.size -1
 
-for(i in 0..SIZE) {
+for(i in 0..SIZE)  {
   def j = COMPONENTS[i]
   pipelineJob("CI pipelines/${j}") {
     configure { flowdefinition ->

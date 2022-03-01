@@ -8,11 +8,6 @@ def call(){
             pollSCM('*/2 * * * *')
         }
         stages{
-            stage('compile the code'){
-                steps {
-                    sh 'echo compile the ${COMPONENT} code'
-                }
-            }
             stage('check the code quality'){
                 steps{
                     sh 'echo check the code quality'

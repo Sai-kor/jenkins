@@ -1,7 +1,7 @@
 def call(){
     pipeline{
         agent{
-            label 'WORKSTATION'
+            label "${BUILD_LABEL}"
         }
         //Auto trigger
         triggers {

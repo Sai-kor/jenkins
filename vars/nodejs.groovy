@@ -4,9 +4,9 @@ def call(){
             label "${BUILD_LABEL}"
         }
         //Auto trigger
-//        triggers {
-//            pollSCM('*/2 * * * *')
-//        }
+        triggers {
+            pollSCM('*/2 * * * *')
+        }
         stages{
             stage('check the code quality'){
                 steps{

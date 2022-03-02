@@ -22,6 +22,7 @@ def call(){
                     sh 'echo lint cases'
                 }
             }
+            //unit test cases- Developers best practice
             stage('Test cases'){
                 steps{
                     sh 'echo Test cases'

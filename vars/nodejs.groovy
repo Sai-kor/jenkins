@@ -8,13 +8,21 @@ def call(){
             pollSCM('H/2 * * * *')
         }
         stages{
+
+            stage('Label Builds'){
+                steps{
+                    script{
+                        addShortText background: '', borderColor: 'white', color: 'red', link: '', text: 'DEMO'
+                    }
+                }
+            }
             stage('check the code quality'){
                 steps{
                     script{
                         common.sonarQube()
                        // addBadge icon: '', id: '', link: '', text: 'DEMO'
                        // addInfoBadge id: '', text: 'DEMO'
-                        addShortText background: '', borderColor: '', color: 'red', link: '', text: 'DEMO'
+                        //addShortText background: '', borderColor: '', color: 'red', link: '', text: 'DEMO'
                     }
                 }
             }

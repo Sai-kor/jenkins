@@ -8,7 +8,7 @@ def call(){
             pollSCM('H/2 * * * *')
         }
         stages{
-
+// common stage for understanding what the job is running against
             stage('Label Builds'){
                 steps{
                     script{

@@ -8,13 +8,13 @@ def call(){
             pollSCM('H/2 * * * *')
         }
         stages{
-// comment
+
             stage('Label Builds'){
                 steps{
                     script{
                         def gitTag= GIT_BRANCH.split('/').last()
                         //def gitTag= sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | awk -F / "{print $NF}"' ])
-                        addShortText background: 'white', borderColor: 'white', color: 'red', link: '', text: "${gitTag}"
+                        addShortText background: 'black', borderColor: 'white', color: 'red', link: '', text: "${gitTag}"
                     }
                 }
             }

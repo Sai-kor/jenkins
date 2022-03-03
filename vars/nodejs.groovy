@@ -30,10 +30,13 @@ def call(){
                 }
 
             }
-// run publish artifact stage when new tag created
+// run publish artifact stage only when new tag created
             stage('publish artifacts'){
                 when{
-                    buildingTag()
+                    expression {
+                        sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ])
+                    }
+                   // buildingTag()
                 }
                 steps{
                     script {

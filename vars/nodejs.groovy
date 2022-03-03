@@ -28,6 +28,11 @@ def call(){
                     sh 'echo Test cases'
                 }
             }
+            stage('publish artifacts'){
+                steps{
+                    sh 'echo publish artifacts'
+                }
+            }
 
         }
         post {

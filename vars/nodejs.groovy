@@ -13,7 +13,8 @@ def call(){
                     script{
                         common.sonarQube()
                        // addBadge icon: '', id: '', link: '', text: 'DEMO'
-                        addInfoBadge id: '', text: 'DEMO'
+                       // addInfoBadge id: '', text: 'DEMO'
+                        addShortText background: '', borderColor: '', color: 'red', link: '', text: 'DEMO'
                     }
                 }
             }

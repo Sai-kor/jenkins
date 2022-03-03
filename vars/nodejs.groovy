@@ -38,6 +38,7 @@ def call(){
                         //common.publishArtifacts()
                         println 'publish artifacts'
                     }
+                    sh 'env'
                 }
             }
 

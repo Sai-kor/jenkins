@@ -12,7 +12,8 @@ def call(){
                 steps{
                     script{
                         common.sonarQube()
-                        addBadge icon: '', id: '', link: '', text: 'DEMO'
+                       // addBadge icon: '', id: '', link: '', text: 'DEMO'
+                        addInfoBadge id: '', text: 'DEMO'
                     }
                 }
             }

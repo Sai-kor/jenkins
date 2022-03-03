@@ -1,4 +1,4 @@
-import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
+//import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
 
 def sonarQube(){
     //sh 'sonar-scanner -Dsonar.projectKey=${COMPONENT} -Dsonar.sources=. -Dsonar.host.url=http://172.31.3.23:9000 -Dsonar.login=admin -Dsonar.password=admin123'
@@ -7,11 +7,11 @@ def sonarQube(){
     println 'Sonarqube testing'
     // we do not need to code quality check everytime so just putitng back some sample statement.
 }
-
-def publishArtifacts() {
-    if(env.GIT_BRANCH == "*tag*"){
-        println 'Ran on tag'
-    } else{
-        Utils.markStageSkippedForConditional('publish artifacts')
-    }
-}
+//
+//def publishArtifacts() {
+//    if(env.GIT_BRANCH == "*tag*"){
+//        println 'Ran on tag'
+//    } else{
+//        Utils.markStageSkippedForConditional('publish artifacts')
+//    }
+//}

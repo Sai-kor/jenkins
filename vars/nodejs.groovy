@@ -30,6 +30,9 @@ def call(){
             }
 // run publish artifact stage when new tag created
             stage('publish artifacts'){
+                when{
+                    buildingTag()
+                }
                 steps{
                     script {
                         //common.publishArtifacts()

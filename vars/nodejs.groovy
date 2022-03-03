@@ -26,7 +26,9 @@ def call(){
             stage('Test cases'){
                 steps{
                     sh 'echo Test cases'
+                    sh 'env'
                 }
+
             }
 // run publish artifact stage when new tag created
             stage('publish artifacts'){
@@ -38,7 +40,6 @@ def call(){
                         //common.publishArtifacts()
                         println 'publish artifacts'
                     }
-                    sh 'env'
                 }
             }
 

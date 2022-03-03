@@ -10,6 +10,6 @@ def publishArtifacts() {
     if(env.GIT_BRANCH == "*tag*"){
         println 'Ran on tag'
     } else{
-        unstable('No artifact to publish')
+        Utils.markStageSkippedForConditional('publish artifacts')
     }
 }

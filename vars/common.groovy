@@ -8,10 +8,15 @@ def sonarQube(){
     // we do not need to code quality check everytime so just putitng back some sample statement.
 }
 //
-//def publishArtifacts() {
+def publishArtifacts() {
 //    if(env.GIT_BRANCH == "*tag*"){
 //        println 'Ran on tag'
 //    } else{
 //        Utils.markStageSkippedForConditional('publish artifacts')
 //    }
-//}
+}
+
+def prepareArtifacts() {
+println PROG_LANG
+
+}

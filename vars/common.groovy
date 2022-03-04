@@ -17,11 +17,14 @@ def publishArtifacts() {
 }
 
 def prepareArtifacts() {
+    env.gitTag= GIT_BRANCH.split('/').last() // if shell has to access it, then it should be env variable
     //println PROG_LANG
     if(env.PROG_LANG_NAME == "nodejs" && env.PROG_LANG_VERSION == "16") {
         sh '''
            npm install
-           ls -ltr         
+           zip -r ${COMPONENT}-${gitTag}.zip node_modules server.js  
+           ls -ltr    
         '''
+        // these 2 are the files that are actually needed by our application to run.This is our actual core application,the rest of the files whatever added is unecessary files
     }
 }

@@ -14,6 +14,15 @@ def call(){
             NEXUS = credentials('NEXUS')
         }
         stages{
+            stage('Label Builds'){
+                steps{
+                    script{
+                        env.gitTag= GIT_BRANCH.split('/').last()  // if shell has to access it, then it should be env variable ,env works anywhere in pipeline as declared as env.
+                        //def gitTag= sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | awk -F / "{print $NF}"' ])
+                        addShortText background: 'white', borderColor: 'white', color: 'red', link: '', text: "${gitTag}"
+                    }
+                }
+            }
             stage('compile the code'){
                 steps {
                     sh 'mvn compile'

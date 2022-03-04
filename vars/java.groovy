@@ -7,6 +7,12 @@ def call(){
 //        triggers {
 //            pollSCM('H/2 * * * *')
 //        }
+
+        environment{
+            PROG_LANG_NAME = "java" // can declare & run specific version also
+            PROG_LANG_VERSION = "1.8"
+            NEXUS = credentials('NEXUS')
+        }
         stages{
             stage('compile the code'){
                 steps {
@@ -28,6 +34,17 @@ def call(){
             stage('Test cases'){
                 steps{
                     sh 'echo Test cases'
+                }
+            }
+            stage('publish artifacts'){
+                when {
+                    expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true']) }
+                }
+                steps{
+                    script {
+                        common.prepareArtifacts()
+                        common.publishArtifacts()
+                    }
                 }
             }
 

@@ -15,7 +15,7 @@ def publishArtifacts() {
 //        Utils.markStageSkippedForConditional('publish artifacts')
 //    }
 }
-
+//prepare artifacts to upload to nexus
 def prepareArtifacts() {
 println PROG_LANG
 

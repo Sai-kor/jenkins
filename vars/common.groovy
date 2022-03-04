@@ -38,5 +38,10 @@ def prepareArtifacts() {
               zip -r ${COMPONENT}-${gitTag}.zip ${COMPONENT}.jar
             '''
         }
+    if(env.PROG_LANG_NAME == "python" && env.PROG_LANG_VERSION == "3") {
+        sh '''
+              zip -r ${COMPONENT}-${gitTag}.zip requirements.txt *.py ${COMPONENT}.ini
+            '''
+    }
 
 }

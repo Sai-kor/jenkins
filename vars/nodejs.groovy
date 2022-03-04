@@ -9,7 +9,7 @@ def call(){
 //        }
 //declaring env variable
         environment{
-            PROG_LANG = "maven" // can declare & run specific version also
+            PROG_LANG = "nodejs" // can declare & run specific version also
         }
         stages
                 {

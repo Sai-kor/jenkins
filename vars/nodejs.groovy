@@ -17,7 +17,7 @@ def call(){
                     stage('Label Builds'){
                         steps{
                             script{
-                                def gitTag= GIT_BRANCH.split('/').last()
+                                 env.gitTag= GIT_BRANCH.split('/').last()  // if shell has to access it, then it should be env variable ,env works anywhere in pipeline as declared as env.
                                 //def gitTag= sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | awk -F / "{print $NF}"' ])
                                 addShortText background: 'white', borderColor: 'white', color: 'red', link: '', text: "${gitTag}"
                             }

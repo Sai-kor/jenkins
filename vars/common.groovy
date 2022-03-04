@@ -17,8 +17,7 @@ def publishArtifacts() {
 }
 
 def prepareArtifacts() {
-    env.gitTag= GIT_BRANCH.split('/').last() // if shell has to access it, then it should be env variable
-    //println PROG_LANG
+        //println PROG_LANG
     if(env.PROG_LANG_NAME == "nodejs" && env.PROG_LANG_VERSION == "16") {
         sh '''
            npm install

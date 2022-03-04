@@ -11,6 +11,7 @@ def call(){
         environment{
             PROG_LANG_NAME = "nodejs" // can declare & run specific version also
             PROG_LANG_VERSION = "16"
+            NEXUS = credentials('NEXUS')
         }
         stages
                 {

@@ -7,6 +7,11 @@ def call(){
 //        environment{
 //
 //        }
+
+        options{
+            ansiColor('xterm')
+        }
+
         parameters {
             choice(name: 'ENVIRONMENT', choices: ['', 'dev', 'prod'], description: 'Pick Environment')
             choice(name: 'ACTION', choices: ['', 'apply', 'destroy'], description: 'Pick Terraform Action')
@@ -31,7 +36,6 @@ def call(){
                     '''
                 }
             }
-
         }
         post {
             always {

@@ -31,7 +31,6 @@ def call(){
                     '''
                 }
             }
-   x
 
         }
         post {

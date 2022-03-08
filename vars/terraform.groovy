@@ -8,7 +8,7 @@ def call(){
 //
 //        }
         parameters {
-            choice(name: 'ENVIRONMENT', choices: ['', 'Dev', 'Prod'], description: 'Pick Environment')
+            choice(name: 'ENVIRONMENT', choices: ['', 'dev', 'prod'], description: 'Pick Environment')
             choice(name: 'ACTION', choices: ['', 'apply', 'destroy'], description: 'Pick Terraform Action')
         }
         stages{
@@ -27,7 +27,7 @@ def call(){
                 steps{
                     sh '''
                         terraform init -backend-config=env/${ENVIRONMENT}-backend.tfvars
-                         terraform ${ACTION} -auto-approve -var-file=env/${ENVIRONMENT}.tfvars
+                        terraform ${ACTION} -auto-approve -var-file=env/${ENVIRONMENT}.tfvars
                     '''
                 }
             }

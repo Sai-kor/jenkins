@@ -4,9 +4,9 @@ def call(){
             label "${BUILD_LABEL}"
         }
 
-        environment{
-
-        }
+//        environment{
+//
+//        }
         parameters {
             choice(name: 'ENVIRONMENT', choices: ['', 'Dev', 'Prod'], description: 'Pick Environment')
             choice(name: 'ACTION', choices: ['', 'apply', 'destroy'], description: 'Pick Terraform Action')

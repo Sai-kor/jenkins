@@ -9,13 +9,14 @@ pipeline{
     stages{
 
         stage('Get Git repo') {
-            steps{
+            steps {
                 dir('code') {
                     git branch: 'main', url: "https://github.com/Sai-kor/${COMPONENT}.git"
                 }
             }
+        }
 
-        stage('terraform appy') {
+        stage('terraform apply') {
             steps{
                 dir('code') {
                     sh '''
@@ -25,7 +26,6 @@ pipeline{
                     '''
                 }
             }
-        }
         }
     }
 }

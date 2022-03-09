@@ -6,6 +6,10 @@ pipeline{
         choice(name: 'ENVIRONMENT', choices: ['', 'dev', 'prod'], description: 'Pick Environment')
         string(name: 'COMPONENT', defaultValue: '', description: 'Which Component?')
     }
+    options{
+        ansiColor('xterm')
+    }
+
     stages{
 
         stage('Get Git repo') {

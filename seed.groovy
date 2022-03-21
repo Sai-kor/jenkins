@@ -161,7 +161,7 @@ pipelineJob('Mutable/DB') {
   }
 }
 
-pipelineJob('Mutable/All-Infra-create') {
+pipelineJob('Mutable/All-Infra-destroy') {
   configure { flowdefinition ->
     flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
       'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
@@ -176,8 +176,9 @@ pipelineJob('Mutable/All-Infra-create') {
           }
         }
       }
-      'scriptPath'('jenkinsfile-mutable-all-infra-create')
+      'scriptPath'('jenkinsfile-mutable-all-infra-destroy')
       'lightweight'(true)
     }
   }
 }
+

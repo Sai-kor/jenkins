@@ -59,6 +59,7 @@ pipeline {
                         dir('cart') {
                             git branch: 'main', url: "https://github.com/Sai-kor/cart.git"
                             sh '''
+                                export TF_VAR_APP_VERSION=1.0.3
                                 cd terraform-mutable
                                 terraform init -backend-config=env/${ENV}-backend.tfvars
                                 terraform apply -auto-approve -var-file=env/${ENV}.tfvars
@@ -71,6 +72,7 @@ pipeline {
                         dir('catalogue') {
                             git branch: 'main', url: "https://github.com/Sai-kor/catalogue.git"
                             sh '''
+                                export TF_VAR_APP_VERSION=1.0.0
                                 cd terraform-mutable
                                 terraform init -backend-config=env/${ENV}-backend.tfvars
                                 terraform apply -auto-approve -var-file=env/${ENV}.tfvars

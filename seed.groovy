@@ -160,3 +160,24 @@ pipelineJob('Mutable/DB') {
     }
   }
 }
+
+pipelineJob('Mutable/All-Infra-create') {
+  configure { flowdefinition ->
+    flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
+      'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
+        'userRemoteConfigs' {
+          'hudson.plugins.git.UserRemoteConfig' {
+            'url'('https://github.com/Sai-kor/jenkins.git')
+          }
+        }
+        'branches' {
+          'hudson.plugins.git.BranchSpec' {
+            'name'('*/main')
+          }
+        }
+      }
+      'scriptPath'('jenkinsfile-mutable-all-infra-create')
+      'lightweight'(true)
+    }
+  }
+}

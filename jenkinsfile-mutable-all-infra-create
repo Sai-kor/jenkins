@@ -6,6 +6,12 @@ pipeline {
     options{
         ansiColor('xterm')
     }
+
+    parameters {
+        choice(name: 'ENVIRONMENT', choices: ['', 'dev', 'prod'], description: 'Pick Environment')
+        //string(name: 'COMPONENT', defaultValue: '', description: 'Which Component?')
+        //string(name: 'APP_VERSION', defaultValue: '', description: 'Application Version to deploy')
+    }
     stages {
 
         stage('VPC') {

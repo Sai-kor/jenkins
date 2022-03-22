@@ -136,14 +136,14 @@ pipeline {
                 }
             }
             }
-
+// rest all are not chargable so just want to delete these two nat gw & Elastic IP
         stage('VPC') {
             steps {
                 dir('vpc') {
                     git branch: 'main', url: "https://github.com/Sai-kor/terraform-vpc.git"
                     sh '''
                         terraform init -backend-config=env/${ENV}-backend.tfvars
-                        terraform destroy -auto-approve -var-file=env/${ENV}.tfvars -target=aws_nat_gateway.ngw // rest all are not chargable so just want to delete these two nat gw & Elastic IP
+                        terraform destroy -auto-approve -var-file=env/${ENV}.tfvars -target=aws_nat_gateway.ngw 
                         terraform destroy -auto-approve -var-file=env/${ENV}.tfvars -target=aws_eip.nat-gw
                     '''
                 }
